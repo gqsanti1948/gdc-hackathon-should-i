@@ -47,48 +47,56 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-16 gap-10">
-      {state.status === "idle" && (
-        <SearchBox onSubmit={handleSubmit} />
-      )}
+    <>
+      {/* Starfield layers */}
+      <div className="stars-sm" />
+      <div className="stars-md" />
+      <div className="stars-lg" />
+      <div className="moon" />
 
-      {state.status === "loading" && (
-        <>
-          <p className="text-gray-400 text-sm">&ldquo;{state.question}&rdquo;</p>
-          <LoadingCosmos />
-        </>
-      )}
+      <main className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-16 gap-10">
+        {state.status === "idle" && (
+          <SearchBox onSubmit={handleSubmit} />
+        )}
 
-      {state.status === "result" && (
-        <>
-          <CosmicRulingDisplay ruling={state.ruling} question={state.question} />
-          <button
-            onClick={reset}
-            className="px-5 py-2 bg-gray-50 text-gray-700 text-sm rounded border border-gray-200 hover:border-gray-400 hover:shadow-sm transition-all"
-          >
-            Ask Again
-          </button>
-        </>
-      )}
+        {state.status === "loading" && (
+          <>
+            <p className="text-indigo-300 text-sm">&ldquo;{state.question}&rdquo;</p>
+            <LoadingCosmos />
+          </>
+        )}
 
-      {state.status === "error" && (
-        <div className="flex flex-col items-center gap-4 max-w-md text-center">
-          <span className="text-4xl">🪐</span>
-          <p className="text-gray-700 font-medium">The cosmos are unavailable</p>
-          <p className="text-gray-400 text-sm">{state.message}</p>
-          <button
-            onClick={reset}
-            className="px-5 py-2 bg-gray-50 text-gray-700 text-sm rounded border border-gray-200 hover:border-gray-400 hover:shadow-sm transition-all"
-          >
-            Try Again
-          </button>
-        </div>
-      )}
+        {state.status === "result" && (
+          <>
+            <CosmicRulingDisplay ruling={state.ruling} question={state.question} />
+            <button
+              onClick={reset}
+              className="px-5 py-2 bg-white/10 text-indigo-200 text-sm rounded border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all backdrop-blur-sm"
+            >
+              Ask Again
+            </button>
+          </>
+        )}
 
-      {/* Footer */}
-      <footer className="fixed bottom-4 text-xs text-gray-300">
-        Powered by real planetary positions and cosmic bureaucracy
-      </footer>
-    </main>
+        {state.status === "error" && (
+          <div className="flex flex-col items-center gap-4 max-w-md text-center">
+            <span className="text-4xl">🪐</span>
+            <p className="text-white font-medium">The cosmos are unavailable</p>
+            <p className="text-indigo-300 text-sm">{state.message}</p>
+            <button
+              onClick={reset}
+              className="px-5 py-2 bg-white/10 text-indigo-200 text-sm rounded border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm"
+            >
+              Try Again
+            </button>
+          </div>
+        )}
+
+        {/* Footer */}
+        <footer className="fixed bottom-4 text-xs text-indigo-400/60">
+          Powered by real planetary positions and cosmic bureaucracy
+        </footer>
+      </main>
+    </>
   );
 }
