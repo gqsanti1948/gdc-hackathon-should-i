@@ -20,12 +20,6 @@ const VERDICT_STYLES = {
     border: "border-red-200",
     bar: "bg-red-400",
   },
-  MAYBE: {
-    text: "text-yellow-500",
-    bg: "bg-yellow-50",
-    border: "border-yellow-200",
-    bar: "bg-yellow-400",
-  },
 };
 
 export default function CosmicRulingDisplay({ ruling, question }: CosmicRulingProps) {

@@ -2,7 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import { buildPrompt } from "@/constants/prompts";
 
 export interface CosmicRuling {
-  verdict: "YES" | "NO" | "MAYBE";
+  verdict: "YES" | "NO";
   confidence: number;
   headline: string;
   reasoning: string;
@@ -15,7 +15,7 @@ function parseRuling(raw: string): CosmicRuling {
   const cleaned = raw.replace(/^```(?:json)?\n?/i, "").replace(/\n?```$/i, "").trim();
   const parsed = JSON.parse(cleaned);
 
-  if (!["YES", "NO", "MAYBE"].includes(parsed.verdict)) {
+  if (!["YES", "NO"].includes(parsed.verdict)) {
     throw new Error(`Invalid verdict: ${parsed.verdict}`);
   }
 

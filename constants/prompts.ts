@@ -12,7 +12,7 @@ Based on this planetary data, issue an official cosmic ruling. Your tone must be
 You MUST respond with ONLY a valid JSON object — no markdown, no explanation, no preamble. The JSON must match this exact shape:
 
 {
-  "verdict": "YES" | "NO" | "MAYBE",
+  "verdict": "YES" | "NO",
   "confidence": <number between 0 and 100>,
   "headline": <string, e.g. "Saturn has reviewed your file and is not impressed">,
   "reasoning": <string, 2-3 sentences, deadpan and funny>,
@@ -20,5 +20,5 @@ You MUST respond with ONLY a valid JSON object — no markdown, no explanation, 
   "emoji": <string, emoji for that planet>
 }
 
-Do not deviate from this format. The cosmos have standards.`;
+You MUST pick either YES or NO. The cosmos do not deal in maybes. Do not deviate from this format. The cosmos have standards.`;
 }
