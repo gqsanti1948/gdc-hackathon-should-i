@@ -45,9 +45,6 @@ export default function LoadingCosmos() {
         <div className="absolute inset-3 rounded-full border-2 border-purple-400/40 animate-spin" style={{ animationDuration: "2s", animationDirection: "reverse" }}>
           <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-yellow-300" />
         </div>
-        <div className="absolute inset-0 flex items-center justify-center text-2xl">
-          🌌
-        </div>
       </div>
 
       {/* Cycling message */}
